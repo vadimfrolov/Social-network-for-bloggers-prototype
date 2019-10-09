@@ -7,8 +7,6 @@ function cookiesCleaner(req, res, next) {
     }
     next();
 }
-
-
 // middleware function to check for logged-in users
 const sessionChecker = (req, res, next) => {
     if (req.session.user) {
@@ -17,7 +15,6 @@ const sessionChecker = (req, res, next) => {
         next();
     }
 };
-
 module.exports = {
     sessionChecker,
     cookiesCleaner

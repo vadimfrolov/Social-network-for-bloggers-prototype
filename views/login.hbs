@@ -1,15 +1,37 @@
 <div class="page-header">
-    <h1>Simple Auth-System</h1>
+    <h1>Parashoot</h1>
 </div>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Sign In <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/signup">Sign Up</a></li>
-                <li><a href="/dashboard">Dashboard</a></li>
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/signup">Sign Up</a></li>
+                <li class="nav-item"><a href="/dashboard">Dashboard</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -20,16 +42,19 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container row">
-    <div class="jumbotron col-sm-4 pull-center">
+<div class="container row main">
+    <div class="jumbotron col-sm-4 pull-center loginForm center">
         <form action="/login" method="post">
             <div>
+                <input class="btn btn-primary" type="submit" value="Log In With Facebook" />
+                <p>Or</p>
+                <input class="btn btn-primary" type="submit" value="Log In With Instagram" />
                 <label>Username:</label>
                 <input type="text" name="username" />
             </div>
             <div>
                 <label>Password:</label>
-                <input type="password" name="password" />
+                <input type="password" name="password"/>
             </div>
             <div>
                 <input class="btn btn-primary" type="submit" value="Log In" />
