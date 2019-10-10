@@ -1,37 +1,37 @@
-<div class="page-header">
-    <h1>Parashoot</h1>
-</div>
-
 <nav class="navbar navbar-light bg-light">
-  <ul class="nav navbar-left">
-      <li class="nav-item btn"><a href="/main">Home</a></li>
-      <li class="nav-item btn"><a href="/about">About</a></li>
-      {{!-- <li class="nav-item btn"><a href="/dashboard">Dashboard</a></li> --}}
-  </ul>
+    <ul class="nav navbar-left">
+        <li class="nav-item btn"><a href="/main">Home</a></li>
+        <li class="nav-item btn"><a href="/about">About</a></li>
+        {{!-- <li class="nav-item btn"><a href="/dashboard">Dashboard</a></li> --}}
+    </ul>
 
-  <ul class="nav navbar-right">
-      <li class="nav-item btn"><a href="/signup">Sign Up</a></li>
-      {{!-- <li class="btn"><a href="/login">Log In</a></li> --}}
-      {{!-- <li class="btn"><a href="/logout">Log Out</a></li> --}}
-  </ul>
+    <ul class="nav navbar-right">
+        <li class="nav-item btn"><a href="/signup">Sign Up</a></li>
+        {{!-- <li class="btn"><a href="/login">Log In</a></li> --}}
+        {{!-- <li class="btn"><a href="/logout">Log Out</a></li> --}}
+    </ul>
 </nav>
 
 <div class="main d-flex justify-content-center">
     <div class="jumbotron col-sm-4 pull-center loginForm center mt-5">
         <form action="/login" method="post">
-            <div>
-                <input class="btn btn-primary" type="submit" value="Log In With Facebook" />
-                <p class="text-center">Or</p>
-                <input class="btn btn-primary" type="submit" value="Log In With Instagram" />
-                <p>Username:</p>
-                <input type="text" name="username" />
+        <p class="btn btn-danger">register new user</p>
+            <div class="mb-3">
+                <input type="text" name="username" placeholder="username" />
             </div>
             <div>
-                <p>Password:</p>
-                <input type="password" name="password"/>
+                <input type="password" class="mb-3" name="password" placeholder="password" />
             </div>
-            <div>
-                <input class="btn btn-primary" type="submit" value="Log In" />
+            <div class="mb-3">
+                <input class="btn btn-danger" type="submit" value="Log In" />
+            </div>
+            <div class="d-flex">
+                <div class="icon mr-3">
+                    <a href="https://www.instagram.com/"><img src="/img/intagram.png" width="70px"></a>
+                </div>
+                <div class="icon">
+                    <a href="https://www.facebook.com/"><img src="/img/facebook.png" width="70px"></a>
+                </div>
             </div>
         </form>
     </div>
