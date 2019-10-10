@@ -1,0 +1,8 @@
+.main {
+  /* display: flexbox; */
+  margin-top: 300px;
+}
+.loginForm {
+  justify-content: center;
+
+}
