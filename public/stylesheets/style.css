@@ -1,0 +1,23 @@
+.round {
+  border-radius: 100px;
+  /* Радиус скругления */
+  box-shadow: 0 0 0 3px green, 0 0 13px #333;
+  /* Параметры теней */
+}
+
+.avatarSize {
+  width: 200px;
+  height: 200px;
+}
+
+.miniRound{
+  border-radius: 25px;
+  /* Радиус скругления */
+  box-shadow: 0 0 0 3px green, 0 0 13px #333;
+  /* Параметры теней */
+}
+
+.miniAvatarSize{
+  width: 50px;
+  height: 50px;
+}
