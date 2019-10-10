@@ -24,5 +24,14 @@
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vadimfrolov/Social-map.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/vadimfrolov/Social-map/issues"
+  },
+  "homepage": "https://github.com/vadimfrolov/Social-map#readme"
 }
