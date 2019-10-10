@@ -9,4 +9,4 @@ const statusSchema = new mongoose.Schema({
   userId: String,
 });
 
-module.exports = mongoose.model('User', statusSchema);
+module.exports = mongoose.model('Status', statusSchema);

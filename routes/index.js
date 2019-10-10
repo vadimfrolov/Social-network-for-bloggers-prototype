@@ -1,7 +1,7 @@
 const express = require('express');
 const { sessionChecker } = require('../middleware/auth');
 const User = require('../models/users');
-// const Status = require('../models/status');
+const Status = require('../models/status');
 
 
 const router = express.Router();
