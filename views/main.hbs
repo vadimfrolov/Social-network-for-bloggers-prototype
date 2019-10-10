@@ -19,13 +19,16 @@
 <ul class="list">
   {{#each status}}
   <li>
-    <a href="/profile/{{this.id}}">{{this.name}}</a>
+    <a href="/profile/{{this.id}}">{{this.userName}}</a>
   </li>
   <li>
     {{this.date}}
   </li>
   <li>
     {{this.text}}
+  </li>
+  <li>
+    {{this.price}}
   </li>
   <li>
     <a href="/edit/{{this.id}}">edit</a>
