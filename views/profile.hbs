@@ -8,8 +8,43 @@
 {{/each}}
 </ul>
 
+<div>
+  <a href="/home"><img src="/img/home.png">home</a>
+</div>
+<div>
+  <a href="/newstatus"><img src="/img/newstatus.png">newstatus</a>
+</div>
+<div>
+  <a href="/map"><img src="img/map.png">map</a>
+</div>
+<div>
+  <a href="/addpicture"><img src="img/addpicture.png">addpicture</a>
+</div>
+<div>
+  <a href="/chat"><img src="img/chat.png">chat</a>
+</div>
+<div>
+  <a href="/logout"><img src="img/logout.png">logout</a>
+</div>
+
+<div> Last photos
+	<img src="img/thumb1.jpg" class="galary">
+  <img src="img/thumb2.jpg" class="galary">
+  <img src="img/thumb3.jpg" class="galary">
+</div>
+
+<div> Социальные сети
 <ul>
 {{#each social}}
-	<li><a></a></li>
+	<li><a href={{this.social}}></a></li>
 {{/each}}
 </ul>
+</div>
+
+<div> Контакты
+	<ul>
+{{#each contact}}
+	<li><a href={{this.contact}}></a></li>
+{{/each}}
+</ul>
+</div>
