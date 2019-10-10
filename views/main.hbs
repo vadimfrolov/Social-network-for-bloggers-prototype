@@ -3,38 +3,54 @@
   <div class="icon ">
     <a href="/logout"><img src="/img/logout.png" width="70px"></a>
   </div>
-  <div  class="icon ">
+  <div class="icon ">
     <a href="/newstatus"><img src="/img/newstatus.png" width="70px"></a>
   </div>
-  <div  class="icon">
+  <div class="icon">
     <a href="/map"><img src="/img/map.png" width="70px"></a>
   </div>
-  <div  class="icon">
+  <div class="icon">
     <a href="/chat"><img src="/img/chat.png" width="70px"></a>
   </div>
-  <div  class="icon">
+  <div class="icon">
     <a href="/about"><img src="/img/about.png" width="70px"></a>
   </div>
 </div>
-<ul class="list">
+
+{{!-- <div>
   {{#each status}}
-  <li>
+  <div>
     <a href="/profile/{{this.id}}">{{this.userName}}</a>
-  </li>
-  <li>
+  </div>
+  <div>
     {{this.date}}
-  </li>
-  <li>
+  </div>
+  <div>
     {{this.text}}
-  </li>
-  <li>
+  </div>
+  <div>
     {{this.price}}
-  </li>
-  <li>
+  </div>
+  <div>
     <a href="/edit/{{this.id}}">edit</a>
-  </li>
-  <li>
+  </div>
+  <div>
     <a href="/delete/{{this.id}}">delete</a>
-  </li>
+  </div>
   {{/each}}
-</ul>
+</div> --}}
+
+
+<div class="d-flex m-2 p-2 flex-wrap">
+  {{#each status}}
+  <div class="card m-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><a href="/profile/{{this.id}}">{{this.userName}}</a></h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{this.price}}</h6>
+      <p class="card-text">{{this.text}}</p>
+      <a href="/edit/{{this.id}}">edit</a>
+      <a href="/delete/{{this.id}}">delete</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
