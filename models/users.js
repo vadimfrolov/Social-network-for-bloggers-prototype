@@ -8,8 +8,8 @@ const userSchema = new mongoose.Schema({
   phone: String,
   friendList: [],
   avatar: String,
-  regDate: String,
-  bithDate: String,
+  regDate: Date,
+  bithDate: Date,
 });
 
 module.exports = mongoose.model('User', userSchema);
