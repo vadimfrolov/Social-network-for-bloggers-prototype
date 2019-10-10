@@ -80,15 +80,19 @@ router.route('/login')
 
   router.route('/newstatus')
     .get((req, res) => {
+      console.log(req.session.user._id);
+      
       res.render('newstatus')
     })
     .post( async (req, res) => {
+
       const post = new Status({ 
         // status: req.body.status, 
         text: req.body.status, 
         userName: req.session.user.username ,
         price: req.body.price,
         date: new Date(),
+        userId: req.session.user._id,
 
       })
       await Status.create(post)
@@ -97,6 +101,19 @@ router.route('/login')
       
       res.redirect('/main')
     })
+
+router.get('/profile/:id', async (req, res) => {
+  let user = await User.findById(req.params.id)
+  console.log(user);
+  
+  res.render('profile')
+})
+
+router.get('/delete/', (req, res) => {
+  // console.log(req.query.);
+  
+  res.redirect('main')
+})
 
 
 
