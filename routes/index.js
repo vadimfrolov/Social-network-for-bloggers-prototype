@@ -58,9 +58,13 @@ router.route('/login')
 
   
   // route for user's dashboard
-  router.get('/main', (req, res) => {
+  router.get('/main', async (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
-      res.render('main');
+      let status = await Status.find();
+
+      // console.log(req.session);
+    
+      res.render('main', {status});
     } else {
       res.redirect('/login');
     }
@@ -70,18 +74,28 @@ router.route('/login')
     res.render('map')
   })
 
+  router.get('/chat', (req, res) => {
+    res.render('chat')
+  })
+
   router.route('/newstatus')
     .get((req, res) => {
       res.render('newstatus')
     })
     .post( async (req, res) => {
       const post = new Status({ 
-        status: req.body.status, 
-        text: req.body.text, 
-        price: req.body.price 
+        // status: req.body.status, 
+        text: req.body.status, 
+        userName: req.session.user.username ,
+        price: req.body.price,
+        date: new Date(),
+
       })
-      await Post.create(post)
+      await Status.create(post)
       console.log(post);
+      // console.log(req.session.user.username);
+      
+      res.redirect('/main')
     })
 
 
