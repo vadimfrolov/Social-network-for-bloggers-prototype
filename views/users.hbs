@@ -1,4 +1,15 @@
-<form action="/users" method="post">
-<input type="text">
-<button type="submit">Submit</button>
-</form>
+<p><img src={{this.photo}} class="round avatarSize"></p>
+<p>{{this.name}}</p>
+
+<ul>
+{{#each people}}
+	<li><p><img src={{this.photo}} class="miniRound miniAvatarSize"></p>
+    <p><button class="userprofile">{{this.name}}</button></p></li>
+{{/each}}
+</ul>
+
+<ul>
+{{#each social}}
+	<li><a></a></li>
+{{/each}}
+</ul>

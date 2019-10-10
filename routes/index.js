@@ -1,6 +1,7 @@
 const express = require('express');
 const { sessionChecker } = require('../middleware/auth');
 const User = require('../models/users');
+const Status = require('../models/status');
 
 
 const router = express.Router();
@@ -55,15 +56,35 @@ router.route('/login')
 
   });
 
+  
+  // route for user's dashboard
+  router.get('/main', (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+      res.render('main');
+    } else {
+      res.redirect('/login');
+    }
+  });
+  
+  router.get('/map', (req, res) => {
+    res.render('map')
+  })
 
-// route for user's dashboard
-router.get('/main', (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-    res.render('dashboard');
-  } else {
-    res.redirect('/login');
-  }
-});
+  router.route('/newstatus')
+    .get((req, res) => {
+      res.render('newstatus')
+    })
+    .post( async (req, res) => {
+      const post = new Status({ 
+        status: req.body.status, 
+        text: req.body.text, 
+        price: req.body.price 
+      })
+      await Post.create(post)
+      console.log(post);
+    })
+
+
 
 
 // route for user logout
@@ -85,6 +106,7 @@ router.get('/logout', async (req, res, next) => {
 router.get('/about', (req, res) => {
   res.render('about')
 })
+
 
 
 module.exports = router;
