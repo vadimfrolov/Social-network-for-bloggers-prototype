@@ -23,7 +23,7 @@ router.route('/signup')
       })
       await user.save();
       req.session.user = user;
-      res.redirect('/dashboard');
+      res.redirect('/main/');
     }
     catch (error) {
       res.redirect('/signup');
@@ -37,10 +37,12 @@ router.route('/login')
     res.render('login');
   })
   .post(async (req, res) => {
-    const {username, password} = req.body;
-    // const password = req.body.password;
 
+    const {username, password} = req.body;
     const user = await User.findOne({ username });
+
+    console.log(user)
+
     if (!user) {
       res.redirect('/login');
       // } else if (!user.validPassword(password)) {
@@ -48,14 +50,14 @@ router.route('/login')
       res.redirect('/login');
     } else {
       req.session.user = user;
-      res.redirect('/dashboard');
+      res.redirect('/main');
     }
 
   });
 
 
 // route for user's dashboard
-router.get('/dashboard', (req, res) => {
+router.get('/main', (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
     res.render('dashboard');
   } else {
@@ -79,6 +81,10 @@ router.get('/logout', async (req, res, next) => {
     res.redirect('/login');
   }
 });
+
+router.get('/about', (req, res) => {
+  res.render('about')
+})
 
 
 module.exports = router;

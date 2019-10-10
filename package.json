@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,11 +17,21 @@
     "jasmine": "^3.3.1",
     "mongoose": "^5.4.13",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.3",
     "session-file-store": "^1.3.1"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vadimfrolov/Social-map.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/vadimfrolov/Social-map/issues"
+  },
+  "homepage": "https://github.com/vadimfrolov/Social-map#readme"
 }
