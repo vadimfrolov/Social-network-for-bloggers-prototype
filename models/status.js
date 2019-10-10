@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const statusSchema = new mongoose.Schema({
-  date: Date,
   text: String,
   price: String,
+  date: Date,
   geo: String,
   userName: String,
   userId: String,

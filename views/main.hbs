@@ -1,22 +1,27 @@
-<ul class="list">
-  {{#each status}}
-  <li>
-    <a href="/profile/{{this.id}}">{{this.name}}</a>
-  </li>
-  <li>
-    {{this.date}}
-  </li>
-  <li>
-    {{this.text}}
-  </li>
-  <li>
-    <a href="/edit/{{this.id}}">edit</a>
-  </li>
-  <li>
-    <a href="/delete/{{this.id}}">delete</a>
-  </li>
-  {{/each}}
-</ul>
+<div>
+  <ul class="list">
+    {{#each status}}
+    <li>
+      <a href="/profile/{{this.id}}">{{this.userName}}</a>
+    </li>
+    <li>
+      {{this.date}}
+    </li>
+    <li>
+      {{this.text}}
+    </li>
+    <li>
+      {{this.price}}
+    </li>
+    <li>
+      <a href="/edit/{{this.id}}">edit</a>
+    </li>
+    <li>
+      <a href="/delete/{{this.id}}">delete</a>
+    </li>
+    {{/each}}
+  </ul>
+</div>
 
 <div>
   <a href="/logout"><img src="/img/logout.png">logout</a>
