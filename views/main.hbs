@@ -1,0 +1,38 @@
+<ul class="list">
+  {{#each status}}
+  <li>
+    <a href="/profile/{{this.id}}">{{this.name}}</a>
+  </li>
+  <li>
+    {{this.date}}
+  </li>
+  <li>
+    {{this.text}}
+  </li>
+  <li>
+    <a href="/edit/{{this.id}}">edit</a>
+  </li>
+  <li>
+    <a href="/delete/{{this.id}}">delete</a>
+  </li>
+  {{/each}}
+</ul>
+
+<div>
+  <a href="/logout"><img src="/public/img/logout.png">logout</a>
+</div>
+<div>
+  <a href="/newstatus"><img src="/public/img/exit.png">newstatus</a>
+</div>
+<div>
+  <a href="/newstatus"><img src="/public/img/newstatus.png">newstatus</a>
+</div>
+<div>
+  <a href="/map"><img src="/public/img/map.png">map</a>
+</div>
+<div>
+  <a href="/chat"><img src="/public/img/chat.png">chat</a>
+</div>
+<div>
+  <a href="/about"><img src="/public/img/about.png">about</a>
+</div>
