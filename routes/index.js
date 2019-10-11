@@ -88,7 +88,7 @@ router.route('/login')
 
       const post = new Status({ 
         // status: req.body.status, 
-        text: req.body.status, 
+        text: req.body.text, 
         userName: req.session.user.username ,
         price: req.body.price,
         date: new Date(),
@@ -109,11 +109,34 @@ router.get('/profile/:id', async (req, res) => {
   res.render('profile')
 })
 
-router.get('/delete/', (req, res) => {
-  // console.log(req.query.);
-  
-  res.redirect('main')
+router.get('/delete/:id', async (req, res) => {
+  let status = await Status.findById(req.params.id);
+    
+  if (status.userId === req.session.user._id){
+    await Status.deleteOne({'_id': req.params.id});
+  }
+  res.redirect('/main')
 })
+
+router.route('/edit/:id')
+  .get(async (req, res) => {
+    let status = await Status.findById(req.params.id);
+
+    if (status.userId === req.session.user._id){
+      res.render('editstatus', {status})
+      // await Status.deleteOne({'_id': req.params.id});
+    } else {
+      res.redirect('/main')
+    }
+  })
+  .post(async (req, res) => {
+    // console.log(req.body);
+    await Status.updateOne({_id: req.params.id}, {text: req.body.text, price: req.body.price});
+    const stat = await Status.findById(req.params.id)
+    console.log(stat);
+    
+    res.redirect('/main')
+  })
 
 
 
