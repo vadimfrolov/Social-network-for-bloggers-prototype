@@ -1,38 +1,66 @@
-<nav class="navbar navbar-light bg-light">
-    <ul class="nav navbar-left">
-        <li class="nav-item btn"><a href="/main">Home</a></li>
-        <li class="nav-item btn"><a href="/about">About</a></li>
-        {{!-- <li class="nav-item btn"><a href="/dashboard">Dashboard</a></li> --}}
-    </ul>
 
-    <ul class="nav navbar-right">
-        <li class="nav-item btn"><a href="/signup">Sign Up</a></li>
-        {{!-- <li class="btn"><a href="/login">Log In</a></li> --}}
-        {{!-- <li class="btn"><a href="/logout">Log Out</a></li> --}}
-    </ul>
-</nav>
 
-<div class="main d-flex justify-content-center">
-    <div class="jumbotron col-sm-4 pull-center loginForm center mt-5">
-        <form action="/login" method="post">
-        <p class="btn btn-danger">login</p>
-            <div class="mb-3">
-                <input type="text" name="username" placeholder="username" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body>
+    <div class="container mt-5">
+        <div class="col-md-6 mx-auto text-center">
+            <div class="header-title">
+                <h1 class="wv-heading--title">
+                    Welcome back!
+                </h1>
             </div>
-            <div>
-                <input type="password" class="mb-3" name="password" placeholder="password" />
-            </div>
-            <div class="mb-3">
-                <input class="btn btn-danger" type="submit" value="Log In" />
-            </div>
-            <div class="d-flex">
-                <div class="icon mr-3">
-                    <a href="https://www.instagram.com/"><img src="/img/intagram.png" width="70px"></a>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="myform form ">
+                    <form action="" method="post" name="login">
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control my-input" id="name"
+                                placeholder="Name">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" min="0" name="password" id="phone" class="form-control my-input"
+                                placeholder="Password">
+                        </div>
+                        <div class="text-center ">
+                            <button type="submit" class=" btn btn-block send-button tx-tfm">login
+                            </button>
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <a href="/signup" class="text-info">register here</a>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="login-or">
+                                <hr class="hr-or">
+                                <span class="span-or">or</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <a class="btn btn-block i-button" href="#">
+                                <i class="fa fa-instagram"></i> Sign up with Instagram
+                            </a>
+                        </div>
+                        <div class="form-group">
+                            <a class="btn btn-block f-button" href="#">
+                                <i class="fa fa-facebook"></i> Sign up with Facebook
+                            </a>
+                        </div>
+                        <p class="small mt-3">By signing up, you are indicating that you have read and agree to the <a
+                                href="#" class="ps-hero__content__link">Terms of Use</a> and <a
+                                href="#">Privacy Policy</a>.
+                        </p>
+                    </form>
                 </div>
-                <div class="icon">
-                    <a href="https://www.facebook.com/"><img src="/img/facebook.png" width="70px"></a>
-                </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</body>
