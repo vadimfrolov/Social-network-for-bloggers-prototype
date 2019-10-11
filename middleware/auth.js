@@ -8,10 +8,9 @@ function cookiesCleaner(req, res, next) {
     next();
 }
 // middleware function to check for logged-in users
-const sessionChecker = async (req, res, next) => {
-
+const sessionChecker = (req, res, next) => {
     if (req.session.user) {
-        res.redirect('/dashboard');
+        res.redirect('/main');
     } else {
         next();
     }
