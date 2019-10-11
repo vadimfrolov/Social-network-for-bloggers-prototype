@@ -26,8 +26,9 @@
       <h5 class="card-title"><a href="/profile/{{this.id}}">{{this.userName}}</a></h5>
       <h6 class="card-subtitle mb-2 text-muted">{{this.price}}</h6>
       <p class="card-text">{{this.text}}</p>
+      <p class="card-text">{{this.date}}</p>
       <a href="/edit/{{this.id}}">edit</a>
-      <a href="/delete/{{this.id}}">delete</a>
+      <a class="delete" id="{{this.id}}" href="/delete/{{this.id}}">delete</a>
     </div>
   </div>
   {{/each}}
