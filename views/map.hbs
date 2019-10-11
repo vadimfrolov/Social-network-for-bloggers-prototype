@@ -1,3 +1,103 @@
+
+
+
+
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=8569ec41-a878-42b7-abb8-de43069828c5&lang=ru_RU"
+    type="text/javascript"></script>
+  <script type="text/javascript">
+
+
+    ymaps.ready(function () {
+      var myMap = new ymaps.Map('map', {
+        center: [55.751574, 37.573856],
+        zoom: 9
+      }, {
+        searchControlProvider: 'yandex#search'
+      }),
+
+        // Создаём макет содержимого.
+        MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+          '<div style="color: #black; font-weight: bold;">$[properties.iconContent]</div>'
+        ),
+
+        user = new ymaps.Placemark(myMap.getCenter(), {
+          hintContent: 'Хочу новых фото!',
+          balloonContent: '<a href="/profile/5d9f4823c61f6833ccb0650d">Хочу новых фото!',
+          iconContent: 'You'
+        }, {
+          // Опции.
+          // Необходимо указать данный тип макета.
+          iconLayout: 'default#imageWithContent',
+          // Своё изображение иконки метки.
+          iconImageHref: '/img/profile.png',
+          // Размеры метки.
+          iconImageSize: [40, 40],
+          // Смещение левого верхнего угла иконки относительно
+          // её "ножки" (точки привязки).
+          iconImageOffset: [0, 0],
+          // Смещение слоя с содержимым относительно слоя с картинкой.
+          iconContentOffset: [6, 25],
+          // Макет содержимого.
+          iconContentLayout: MyIconContentLayout
+        }),
+
+        brad = new ymaps.Placemark([55.661574, 37.573856], {
+          hintContent: 'Готов поснимать тебя',
+          balloonContent: 'Готов поснимать тебя</a>',
+          iconContent: 'Brad',
+        }, {
+          iconLayout: 'default#imageWithContent',
+          iconImageHref: '/img/brad.png',
+          iconImageSize: [40, 40],
+          iconImageOffset: [0, 0],
+          iconContentOffset: [5, 25],
+          iconContentLayout: MyIconContentLayout
+        });
+        britney = new ymaps.Placemark([55.76, 37.59], {
+          hintContent: 'Ищу девушек для совместных съемок',
+          balloonContent: 'Ищу девушек для совместных съемок',
+          iconContent: 'Britney',
+        }, {
+          iconLayout: 'default#imageWithContent',
+          iconImageHref: '/img/britney.png',
+          iconImageSize: [40, 40],
+          iconImageOffset: [0, 0],
+          iconContentOffset: [5, 25],
+          iconContentLayout: MyIconContentLayout
+        });
+        kate = new ymaps.Placemark([55.707817, 37.590692], {
+          hintContent: 'Сижу в Шоколаднице, есть идеи для фото',
+          balloonContent: 'Сижу в Шоколаднице, есть идеи для фото',
+          iconContent: 'Kate',
+        }, {
+          iconLayout: 'default#imageWithContent',
+          iconImageHref: '/img/kate.png',
+          iconImageSize: [40, 40],
+          iconImageOffset: [0, 0],
+          iconContentOffset: [5, 25],
+          iconContentLayout: MyIconContentLayout
+        });
+        suzan = new ymaps.Placemark([55.741373, 37.620492], {
+          hintContent: 'Нашла отличные интерьеры для съемок',
+          balloonContent: 'Нашла отличные интерьеры для съемок',
+          iconContent: 'Suzan',
+        }, {
+          iconLayout: 'default#imageWithContent',
+          iconImageHref: '/img/suzan.png',
+          iconImageSize: [40, 40],
+          iconImageOffset: [0, 0],
+          iconContentOffset: [5, 25],
+          iconContentLayout: MyIconContentLayout
+        });
+      myMap.geoObjects
+        .add(user)
+        .add(brad)
+        .add(britney)
+        .add(kate)
+        .add(suzan);
+    });
+  </script>
 <div class="d-flex flex-row justify-content-around mt-3">
 
     <div class="icon ">
@@ -20,34 +120,8 @@
     </div>
 </div>
 
-<nav class="navbar navbar-light bg-light">
-    <ul class="nav navbar-left">
-        <li class="nav-item btn"><a href="/main">Home</a></li>
-        {{!-- <a class="nav-item btn"><a href="/signup">Sign Up</a></a> --}}
-        {{!-- <a class="nav-item btn"><a href="/dashboard">Dashboard</a></a> --}}
-    </ul>
 
-    <ul class="nav navbar-right">
-        {{!-- <a class="btn"><a href="/login">Log In</a></a> --}}
-        <li class="btn"><a href="/logout">Log Out</a></li>
-    </ul>
-</nav>
 <div class="container row">
-    <h1>Hi, Welcome to your Dashboard</h1>
-    <div style="overflow:hidden;width: 900px;position: relative;" class="justify-content-center align-items-center">
-        <iframe width="100%" height="500"
-            src="https://maps.google.com/maps?width=900&amp;height=500&amp;hl=en&amp;q=Moscow%2C%20Russia+(%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed"
-            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-        <div
-            style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
-            <small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a
-                    href="https://embedgooglemaps.com/fr/">embedgooglemaps FR</a> & <a
-                    href="https://iamsterdamcard.it">iamsterdam card.it</a></small></div>
-        <style>
-            #gmap_canvas img {
-                max-width: none !important;
-                background: none !important
-            }
-        </style>
-    </div><br />
+    <div id="map" style="width: 600px; height: 400px"></div>
+    <br />
 </div>
