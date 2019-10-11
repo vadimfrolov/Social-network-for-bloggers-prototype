@@ -70,11 +70,11 @@ router.route('/login')
     }
   });
   
-  router.get('/map', (req, res) => {
+  router.get('/map', sessionChecker, (req, res) => {
     res.render('map')
   })
 
-  router.get('/chat', (req, res) => {
+  router.get('/chat', sessionChecker, (req, res) => {
     res.render('chat')
   })
 
@@ -93,7 +93,6 @@ router.route('/login')
         price: req.body.price,
         date: new Date(),
         userId: req.session.user._id,
-
       })
       await Status.create(post)
       console.log(post);
@@ -109,13 +108,18 @@ router.get('/profile/:id', async (req, res) => {
   res.render('profile')
 })
 
-router.get('/delete/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
   let status = await Status.findById(req.params.id);
-    
+  
   if (status.userId === req.session.user._id){
-    await Status.deleteOne({'_id': req.params.id});
+    const post = await Status.findByIdAndDelete({ _id: req.params.id })
+    res.json(post)
+    return res.redirect('/main');
+    // await Status.deleteOne({'_id': req.params.id});
   }
-  res.redirect('/main')
+  // res.redirect('/main')
+
+
 })
 
 router.route('/edit/:id')

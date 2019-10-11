@@ -50,7 +50,7 @@
       <p class="card-text">{{this.text}}</p>
       <p class="card-text">{{this.date}}</p>
       <a href="/edit/{{this.id}}">edit</a>
-      <a href="/delete/{{this.id}}">delete</a>
+      <a class="delete" id="{{this.id}}" href="/delete/{{this.id}}">delete</a>
     </div>
   </div>
   {{/each}}
