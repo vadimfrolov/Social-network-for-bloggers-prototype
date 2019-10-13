@@ -45,7 +45,7 @@ const indexRouter = require("./routes/index");
 
 // Подключаем mongoose.
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/parashoot", {useNewUrlParser: true});
+mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds135068.mlab.com:35068/heroku_rt6cpl2q", {useNewUrlParser: true});
 
 // Подключаем статику
 app.use(express.static(path.join(__dirname, "public")));

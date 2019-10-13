@@ -20,7 +20,7 @@ router.route('/signup')
       const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
       })
       await user.save();
       req.session.user = user;
@@ -39,7 +39,7 @@ router.route('/login')
   })
   .post(async (req, res) => {
 
-    const {username, password} = req.body;
+    const { username, password } = req.body;
     const user = await User.findOne({ username });
 
     console.log(user)
