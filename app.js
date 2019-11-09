@@ -10,6 +10,10 @@ const path = require("path");
 const FileStore = require("session-file-store")(session);
 const { cookiesCleaner } = require("./middleware/auth");
 
+require("dotenv").config();
+
+let MongoKey = process.env.MONGO_ONLINE;
+
 app.use(morgan("dev"));
 // Обработка POST запросов.
 // urlencoded.
@@ -45,7 +49,7 @@ const indexRouter = require("./routes/index");
 
 // Подключаем mongoose.
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://vadim:123@cluster0-mm3y1.gcp.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect(`${MongoKey}`, {useNewUrlParser: true});
 
 // Подключаем статику
 app.use(express.static(path.join(__dirname, "public")));
