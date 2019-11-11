@@ -91,12 +91,11 @@ router.route('/login')
         text: req.body.status, 
         userName: req.session.user.username ,
         price: req.body.price,
-        date: new Date(),
+        date: new Date().toISOString().slice(0,10),
         userId: req.session.user._id,
       })
       await Status.create(post)
       console.log(post);
-      // console.log(req.session.user.username);
       
       res.redirect('/main')
     })
